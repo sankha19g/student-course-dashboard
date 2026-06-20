@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Bento Layout Course Dashboard
 
-## Getting Started
+Github Repo - https://github.com/sankha19g/student-course-dashboard
+Live website - https://student-course-dashboard-two.vercel.app/
 
-First, run the development server:
+#### Tech Stack
+Next Js, Tailwind CSS, Javascript, Supabase, Framer motion, Lucide icons, vercel
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Layout and UI**
+- Made the Home page a Bento grid layout.
+- Made the app responsive, such that there are 1 components/Boxes in mobile and 4 in large screens.
+- Used CSS variables , to easy switch between themes and better maintenance.
+**Pages**
+- First is Home page where all the components are there like Hero, activity area, my courses, recommended courses and a leaderboard.
+- 2nd is Courses page where there are list of courses. In that you can use the search feature.
+- Activity and settings pages are still in development.
+- At last added profile page where there are user details fetched directly from Supabase DB.
+**Animations**
+- Used Framer motion for spring physics while hovering the elements
+- Added fade up animation every time I open the page, they are Staggering in sequentially.
+- Added a skeleton loader in home page.
+**Database**
+- Used Supabase to fetch data of courses, recommended courses, pictures, user details etc.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Challenges
+- The bento layout and the making it responsive was a challenging task, a lot of times the UI was breaking.
+- I feel this needs more polishing ,could have added more features and pages if I had more time.
