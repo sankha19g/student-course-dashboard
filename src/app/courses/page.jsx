@@ -28,12 +28,12 @@ const CoursesPage = () => {
             <div className="flex flex-col border border-border p-4 md:p-10  rounded-xl  ">
                 {/* search bar */}
                 <div className="flex border border-border gap-2 p-2 rounded-xl justify-center ">
-                    <motion.div variants={fadeUp} initial="hidden" animate="visible" className="bg-white rounded-full flex items-center p-1 ">
-                        <input onChange={(e) => setSearch(e.target.value)} className="text-black p-3 bg-amber-50 rounded-l-full w-full md:w-150 outline-none " type="text" placeholder="Search" />
-                        <button onClick={searchCourse} className='bg-primary rounded-full h-full w-11 p-2 my-1 cursor-pointer hover:scale-101 transition-transform duration-300 '><Search /></button>
+                    <motion.div variants={fadeUp} initial="hidden" animate="visible" className=" border border-slate-700 rounded-full flex items-center p-1 ">
+                        <input onChange={(e) => setSearch(e.target.value)} className="text-white p-3  rounded-l-full w-full md:w-150 outline-none " type="text" placeholder="Search" />
+                        <button onClick={searchCourse} className='bg-secondary rounded-full h-full w-11 p-2 my-1 cursor-pointer hover:scale-101 transition-transform duration-300 '><Search /></button>
                     </motion.div>
                     {/* Filter */}
-                    <motion.button variants={fadeUp} initial="hidden" animate="visible" className="px-6 rounded-xl bg-primary cursor-pointer">Filter</motion.button>
+                    <motion.button variants={fadeUp} initial="hidden" animate="visible" className="px-6 rounded-xl bg-secondary cursor-pointer">Filter</motion.button>
                 </div>
 
                 <motion.div
@@ -54,7 +54,7 @@ const CoursesPage = () => {
                                 <p className='text-white text-lg font-bold'>{buycourse.title}</p>
                                 <p>Duration: {buycourse.time}</p>
                                 <p>Price: {buycourse.price}</p>
-                                <button className='bg-primary rounded-full px-6 cursor-pointer hover:border-white hover:border mt-6 '>Enroll Now</button>
+                                <button className='bg-secondary rounded-full px-6 cursor-pointer hover:border-white hover:border mt-6 '>Enroll Now</button>
                             </div>
                         </motion.div>
                     ))}
