@@ -28,5 +28,5 @@ Next Js, Tailwind CSS, Javascript, Supabase, Framer motion, Lucide icons, vercel
 - Used Supabase to fetch data of courses, recommended courses, pictures, user details etc.
 
 #### Challenges
-- The bento layout and the making it responsive was a challenging task, a lot of times the UI was breaking.
+- The bento layout and the making it responsive was a challenging task, a lot of times the UI was breaking. So the UI might not be perfect in different screen sizes.
 - I feel this needs more polishing ,could have added more features and pages if I had more time.
