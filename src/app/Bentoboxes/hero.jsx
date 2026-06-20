@@ -1,16 +1,30 @@
-
-import Streakpill from '../components/streakpill'
+"use client"
+import { useState, useEffect } from 'react';
+import Streakpill from '../components/streakpill';
+import { supabase } from '@/api/client';
 
 const Hero = () => {
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    const fetchName = async () => {
+      const { data, error } = await supabase.from("users").select("name").single();
+      if (!error && data) {
+        setName(data.name);
+      }
+    };
+    fetchName();
+  }, []);
+
   return (
-    <div className="bg-purple-500 m-2 p-8 rounded-2xl shadow-md text-center flex flex-col justify-between w-full h-60 cursor-pointer hover:scale-101 transition-transform duration-300 hover:shadow-[0px_0px_15px_1px_rgba(64,128,128,0.7)]">
-      <div className='flex flex-row justify-between'>
-        <h1 className="text-4xl font-bold mb-4">Welcome back, [Name]</h1>
+    <div className="bg-card border-border border m-2 p-3 md:p-8 rounded-3xl shadow-md text-center flex flex-col justify-between w-full h-60 cursor-pointer hover:shadow-shadow">
+      <div className='flex flex-col md:flex-row md:justify-between'>
+        <h1 className="text-2xl md:text-4xl font-bold mb-4 text-start">Welcome back, {name || "Guest"}</h1>
         <Streakpill className="" />
       </div>
-      <div className='flex flex-row gap-3'>
-        <p className='bg-blue-900/50 rounded-full px-5 py-1'>4 Active Courses</p>
-        <p className='bg-blue-900/50 rounded-full px-5 py-1'>2 Pending Lessons</p>
+      <div className='flex flex-col gap-2 w-fit'>
+        <p className='bg-blue-900/30 rounded-full md:px-5 px-2 py-1 text-xs '>4 Active Courses</p>
+        <p className='bg-blue-900/30 rounded-full md:px-5 px-2 py-1 text-xs'>2 Pending Lessons</p>
       </div>
     </div>
   )

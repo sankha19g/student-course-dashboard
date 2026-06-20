@@ -1,17 +1,30 @@
 import { BookText } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { hoverSpring } from '../utils/animation';
 
-const Recomended = () => {
+
+
+const Recomended = ({ recomended = [] }) => {
+
+
+
     return (
-        <div className="bg-blue-700 flex flex-col justify-between m-2 p-3 rounded-2xl shadow-md text-center w-35 md:w-60  md:h-50 cursor-pointer hover:scale-101 transition-transform duration-300 hover:shadow-[0px_0px_15px_1px_rgba(64,128,128,0.7)]">
-            <div>
-                <BookText />
-                <p className="text-xl font-bold mb-2">Course 1</p>
-            </div>
+        <>
+            {recomended.map((recomendedcourse, key) => (
+                <motion.div {...hoverSpring} key={key} className="bg-card relative border-border border flex flex-col justify-between p-3 rounded-3xl shadow-md text-center w-full md:w-75 cursor-pointer hover:shadow-shadow">
+                    <div>
+                        <BookText />
+                        <p className='absolute top-0 right-0 m-2 text-xs border border-gray-800  w-fit rounded-sm px-2 text-gray-400'>Recomended courses</p>
+                        <div className="w-auto flex justify-center"><img src={recomendedcourse.pic} alt="photo" className="object-cover h-20 rounded-xl border border-slate-200" /></div>
+                        <p className="text-lg font-bold my-2 text-left">{recomendedcourse.title}</p>
+                    </div>
 
-            {/* Progress bar here */}
-            <button className="px-5 py-1 rounded-xl bg-black text-white">Enroll</button>
 
-        </div>
+                    <button className="px-5 py-1 rounded-xl bg-primary text-background hover:bg-secondary cursor-pointer">Enroll</button>
+
+                </motion.div>
+            ))}
+        </>
     )
 }
 

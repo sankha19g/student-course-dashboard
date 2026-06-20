@@ -1,21 +1,39 @@
+"use client"
 import { BookText } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { motion } from "framer-motion"
+import { hoverSpring } from '../utils/animation';
 
-const Course = () => {
+const Course = ({ courses = [] }) => {
+
   return (
-    <div className="bg-orange-500 flex flex-col justify-between m-2 p-3 rounded-2xl shadow-md text-center w-35 md:w-80  md:h-40 cursor-pointer hover:scale-101 transition-transform duration-300 hover:shadow-[0px_0px_15px_1px_rgba(64,128,128,0.7)]">
-      <div>
-        <BookText />
-        <p className="text-xl font-bold mb-2">Course 1</p>
-      </div>
+    <>
+      {courses.map((appliedcourse, key) => (
 
-      {/* Progress bar here */}
-      <div className="mb-2 flex flex-col gap-2 text-left">
-        <label >Progress: 70%</label>
-        <progress className='h-1 rounded-full' value="70" max="100">70 %</progress>
-      </div>
+        <motion.div key={key} {...hoverSpring} className="relative bg-card border-border border flex flex-col justify-between mx-2 p-3 rounded-3xl shadow-md text-center w-full md:w-75 md:h-40 cursor-pointer hover:shadow-shadow">
+          <div>
+            <BookText className='text-primary' />
+            <p className='absolute top-0 right-0 m-2 text-xs border border-gray-800  w-fit rounded-sm px-2 text-gray-400'>Continue learning</p>
+            <p className="text-xl text-text font-bold mb-2">{appliedcourse.title}</p>
+          </div>
 
-    </div>
-  )
+          {/* Progress bar */}
+          <div className="mb-2 flex flex-col gap-2 text-left">
+            <label>Progress: {appliedcourse.progress ?? 0}%</label>
+            <div className="w-full h-1.5 bg-border rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${appliedcourse.progress ?? 0}%` }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="h-full bg-primary rounded-full"
+              />
+            </div>
+          </div>
+
+        </motion.div>
+      ))}
+    </>
+  );
 }
 
 export default Course

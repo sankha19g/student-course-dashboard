@@ -1,0 +1,11 @@
+import React from 'react'
+
+const SettingsPage = () => {
+    return (
+        <div>
+            <h1 className="md:text-4xl text-xl mt-20 ml-10">SettingsPage</h1>
+        </div>
+    )
+}
+
+export default SettingsPage

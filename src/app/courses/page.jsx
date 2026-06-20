@@ -1,42 +1,64 @@
-import React from 'react'
-
-const CourseList = () => {
-    return (
-        <div className='w-full bg-amber-900 p-5 h-50 rounded-xl cursor-pointer hover:scale-101 transition-transform duration-300 hover:shadow-[0px_0px_15px_1px_rgba(64,128,128,0.7)]'>
-            <p className='text-black text-lg font-bold'>Python</p>
-            <p text>Duration: 60 Hrs</p>
-            <p>Price: ₹2,000</p>
-            <button className='bg-slate-700 rounded-full px-6 cursor-pointer hover:scale-101 transition-transform duration-300 mt-6 '>Enroll Now</button>
-        </div>
-    )
-}
+"use client"
+import { Search } from 'lucide-react';
+import { supabase } from '@/api/client';
+import { useState, useEffect } from 'react';
+import { fadeUp, staggerContainer, hoverSpring } from '../utils/animation';
+import { motion } from "framer-motion";
 
 const CoursesPage = () => {
+    const [getCourse, setGetCourse] = useState([]);
+    const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        supabase.from("buycourse").select("*").then(({ data, error }) => {
+            if (error) { console.error("Error fetching courses:", error.message); return; }
+            setGetCourse(data ?? []);
+        });
+    }, []);
+
+    const searchCourse = async () => {
+        const { data, error } = await supabase.from("buycourse").select("*").ilike("title", `%${search}%`);
+        if (error) { console.error("Error fetching courses:", error.message); return; }
+        setGetCourse(data ?? []);
+    }
+
     return (
-        <div className='w-full m-2'>
-            <h1 className='text-5xl text-white m-4 text-center '>Explore Courses</h1>
-            <div className="flex flex-col border border-white p-10   ">
+        <div className='w-full m-2 mt-12 mb-15'>
+            <motion.h1 variants={fadeUp} initial="hidden" animate="visible" className='text-5xl text-white m-4 text-center '>Explore Courses</motion.h1>
+            <div className="flex flex-col border border-border p-4 md:p-10  rounded-xl  ">
                 {/* search bar */}
-                <div className="flex border border-white gap-2 p-2 rounded-xl">
-                    <input className="text-black p-3 bg-amber-50 rounded-full " type="text" placeholder="Search" />
-
-                    <button className='bg-slate-300 rounded-full px-6 cursor-pointer hover:scale-101 transition-transform duration-300 '>Search</button>
+                <div className="flex border border-border gap-2 p-2 rounded-xl justify-center ">
+                    <motion.div variants={fadeUp} initial="hidden" animate="visible" className="bg-white rounded-full flex items-center p-1 ">
+                        <input onChange={(e) => setSearch(e.target.value)} className="text-black p-3 bg-amber-50 rounded-l-full w-full md:w-150 outline-none " type="text" placeholder="Search" />
+                        <button onClick={searchCourse} className='bg-primary rounded-full h-full w-11 p-2 my-1 cursor-pointer hover:scale-101 transition-transform duration-300 '><Search /></button>
+                    </motion.div>
                     {/* Filter */}
-                    <button className="px-6 rounded-xl bg-slate-500 cursor-pointer">Filter</button>
+                    <motion.button variants={fadeUp} initial="hidden" animate="visible" className="px-6 rounded-xl bg-primary cursor-pointer">Filter</motion.button>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 '>
-                    <CourseList />
-                    <CourseList />
-                    <CourseList />
-                    <CourseList />
-                    <CourseList />
-                    <CourseList />
-                    <CourseList />
-                    <CourseList />
-
-                </div>
-
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                    className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 '>
+                    {getCourse.map((buycourse, key) => (
+                        <motion.div
+                            variants={fadeUp}
+                            {...hoverSpring}
+                            key={key}
+                            className='w-full flex flex-row md:flex-col md:justify-between bg-card border-border border py-2 px-2 md:p-5 h-fit rounded-xl cursor-pointer  hover:shadow-shadow'>
+                            <div className='w-40 h-30 md:w-full md:h-48 border border-border rounded-xl overflow-hidden'>
+                                <img src={buycourse.pic} alt="coursepic" className='rounded-xl object-cover w-full h-full' />
+                            </div>
+                            <div className='md:py-2 px-3'>
+                                <p className='text-white text-lg font-bold'>{buycourse.title}</p>
+                                <p>Duration: {buycourse.time}</p>
+                                <p>Price: {buycourse.price}</p>
+                                <button className='bg-primary rounded-full px-6 cursor-pointer hover:border-white hover:border mt-6 '>Enroll Now</button>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
 
             </div>
         </div>
