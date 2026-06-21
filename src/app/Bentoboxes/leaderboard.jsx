@@ -6,7 +6,7 @@ import CountUp from 'react-countup';
 
 const Leaderboard = () => {
     return (
-        <motion.div {...hoverSpring} className='bg-card border-border border w-full p-5 rounded-3xl mt-2 hover:shadow-shadow cursor-pointer'>
+        <motion.div {...hoverSpring} className='bg-card border-border border w-full p-5 rounded-3xl  hover:shadow-shadow cursor-pointer'>
             <div className="flex flex-row justify-between">
                 <h1 className='text-2xl font-semibold mb-4' > Leaderboard</h1>
                 <Users className='text-white' />

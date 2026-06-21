@@ -32,7 +32,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className='flex flex-col items-center justify-center w-full'>
+    <div className='flex flex-col items-center justify-center w-full '>
       {loading ? <HomeSkeleton /> : (
         <motion.div
           variants={staggerContainer}
@@ -40,7 +40,7 @@ const Page = () => {
           animate="visible"
           className="bg-background mt-16 mb-16 md:mt-2 px-2">
 
-          <section className="grid gap-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mr-2">
+          <section className="grid md:gap-5 lg:gap-2 gap-2 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mb-2">
             <motion.div
               variants={fadeUp}
               {...hoverSpring}
@@ -58,15 +58,15 @@ const Page = () => {
           <section className="">
             <motion.div
               variants={fadeUp}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-2">
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mb-2">
               <Course courses={courses} />
             </motion.div>
           </section>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-2">
+          <section className=" ">
             <motion.div
               variants={fadeUp}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:col-span-4">
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mb-2">
               <Recomended recomended={recomended} />
               <Leaderboard />
             </motion.div>

@@ -11,7 +11,7 @@ const Recomended = ({ recomended = [] }) => {
     return (
         <>
             {recomended.map((recomendedcourse, key) => (
-                <motion.div {...hoverSpring} key={key} className="bg-card relative border-border border flex flex-col justify-between p-3 rounded-3xl shadow-md text-center w-full md:w-75 cursor-pointer hover:shadow-shadow">
+                <motion.div {...hoverSpring} key={key} className="bg-card relative border-border border flex flex-col justify-between p-3 rounded-3xl shadow-md text-center w-full md:w-78 cursor-pointer hover:shadow-shadow">
                     <div>
                         <TrendingUp className='text-primary' />
                         <p className='absolute top-0 right-0 m-2 text-xs border border-gray-800  w-fit rounded-sm px-2 text-gray-400'>Recomended courses</p>
