@@ -23,6 +23,7 @@ Next Js, Tailwind CSS, Javascript, Supabase, Framer motion, Lucide icons, vercel
 - Used Framer motion for spring physics while hovering the elements
 - Added fade up animation every time I open the page, they are Staggering in sequentially.
 - Added a skeleton loader in home page.
+- Added CountUp animation for some numbers.
 
 **Database**
 - Used Supabase to fetch data of courses, recommended courses, pictures, user details etc.

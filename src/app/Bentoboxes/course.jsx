@@ -1,6 +1,6 @@
 "use client"
 import { BookText } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import CountUp from 'react-countup';
 import { motion } from "framer-motion"
 import { hoverSpring } from '../utils/animation';
 
@@ -19,7 +19,7 @@ const Course = ({ courses = [] }) => {
 
           {/* Progress bar */}
           <div className="mb-2 flex flex-col gap-2 text-left">
-            <label>Progress: {appliedcourse.progress ?? 0}%</label>
+            <label>Progress: <CountUp end={appliedcourse.progress ?? 0} duration={10} />%</label>
             <div className="w-full h-1.5 bg-border rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
