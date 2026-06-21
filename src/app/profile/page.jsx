@@ -49,10 +49,10 @@ const Profile = () => {
     return (
         <>
             <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="w-full md:mx-6 my-10">
-                <div className="w-full text-5xl text-white m-4">
+                <div className="w-full text-5xl text-white m-4 text-center">
                     <h1>Profile</h1>
                 </div>
-                <div className="flex flex-col-reverse md:flex-row md:justify-between w-full  md:m-4">
+                <div className="flex flex-col-reverse md:flex-row md:justify-between w-full  md:m-4 items-center">
                     <div className="flex flex-col gap-4">
 
                         <motion.div variants={fadeUp} className="flex flex-col w-full h-fit p-5 m-4 border border-slate-700 rounded-xl">

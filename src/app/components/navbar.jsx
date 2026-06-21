@@ -10,10 +10,10 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const menu = [
-    { name: "Home",     icon: House,        href: "/" },
-    { name: "Courses",  icon: BookOpen,     href: "/courses" },
-    { name: "Activity", icon: ChartColumn,  href: "/activity" },
-    { name: "Settings", icon: Settings,     href: "/settings" },
+    { name: "Home", icon: House, href: "/" },
+    { name: "Courses", icon: BookOpen, href: "/courses" },
+    { name: "Activity", icon: ChartColumn, href: "/activity" },
+    { name: "Settings", icon: Settings, href: "/settings" },
   ];
 
   return (
@@ -55,9 +55,8 @@ const Navbar = () => {
 
               return (
                 <Link key={item.name} href={item.href}>
-                  <li className={`relative flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
-                    isActive ? 'text-white' : 'text-muted hover:text-text hover:bg-slate-700/50'
-                  }`}>
+                  <li className={`relative flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${isActive ? 'text-white' : 'text-muted hover:text-text hover:bg-slate-700/50'
+                    }`}>
 
                     {/* Sliding active background */}
                     {isActive && (
@@ -93,9 +92,8 @@ const Navbar = () => {
 
         {/* Bottom — Profile */}
         <Link href="/profile">
-          <div className={`relative flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
-            pathname === '/profile' ? 'text-white' : 'text-muted hover:text-text hover:bg-slate-700'
-          }`}>
+          <div className={`relative flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors ${pathname === '/profile' ? 'text-white' : 'text-muted hover:text-text hover:bg-slate-700'
+            }`}>
             {pathname === '/profile' && (
               <motion.div
                 layoutId="activeNavBg"
@@ -120,6 +118,9 @@ const Navbar = () => {
         </Link>
       </motion.nav>
 
+
+
+
       {/* Mobile bottom navigation */}
       <nav className='bg-slate-900 text-white md:hidden z-100 h-14 flex items-center fixed bottom-0 left-0 w-full'>
         <ul className="flex flex-row justify-around w-full">
@@ -128,9 +129,8 @@ const Navbar = () => {
             const isActive = pathname === item.href;
             return (
               <li key={item.name}
-                className={`flex items-center justify-center py-1 px-3 rounded-lg cursor-pointer transition-colors ${
-                  isActive ? 'text-primary' : 'text-muted hover:text-white'
-                }`}>
+                className={`flex items-center justify-center py-1 px-3 rounded-lg cursor-pointer transition-colors ${isActive ? 'text-primary' : 'text-muted hover:text-white'
+                  }`}>
                 <Link href={item.href}>
                   <Icon size={22} />
                 </Link>
