@@ -39,6 +39,7 @@ const Page = () => {
           initial="hidden"
           animate="visible"
           className="bg-background mt-16 mb-16 md:mt-2 px-2">
+          
           <section className="grid gap-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mr-2">
             <motion.div
               variants={fadeUp}
@@ -53,6 +54,7 @@ const Page = () => {
               <Activity />
             </motion.div>
           </section>
+
           <section className="">
             <motion.div
               variants={fadeUp}
@@ -60,6 +62,7 @@ const Page = () => {
               <Course courses={courses} />
             </motion.div>
           </section>
+          
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-2">
             <motion.div
               variants={fadeUp}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { useMemo } from "react"
 
+
 const Activity = () => {
     const totalBoxes = 70;
     //    random number between 0,1,2,3
@@ -47,6 +48,7 @@ const Activity = () => {
                         <div className="h-3 w-3 rounded-sm bg-emerald-400"></div>
                         <p className="text-xs text-gray-400">More</p>
                     </div>
+                
                 </div>
             </div>
         </div>
