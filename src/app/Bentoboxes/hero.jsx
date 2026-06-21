@@ -20,7 +20,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="bg-card border-border border m-2 p-3 md:p-8 rounded-3xl shadow-md text-center flex flex-col justify-between w-full h-60 cursor-pointer hover:shadow-shadow">
+    <div className="bg-card border-border border  p-3 md:p-8 rounded-3xl shadow-md text-center flex flex-col justify-between w-full h-60 cursor-pointer hover:shadow-shadow">
       <div className='flex flex-col md:flex-row md:justify-between'>
         <h1 className="text-2xl md:text-4xl font-bold mb-4 text-start">
           Welcome back {name} !

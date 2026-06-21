@@ -10,7 +10,7 @@ const Course = ({ courses = [] }) => {
     <>
       {courses.map((appliedcourse, key) => (
 
-        <motion.div key={key} {...hoverSpring} className="relative bg-card border-border border flex flex-col justify-between mx-2 p-3 rounded-3xl shadow-md text-center w-full md:w-75 md:h-40 cursor-pointer hover:shadow-shadow">
+        <motion.div key={key} {...hoverSpring} className="relative bg-card border-border border flex flex-col justify-between p-3 rounded-3xl shadow-md text-center w-full md:w-75 md:h-40 cursor-pointer hover:shadow-shadow">
           <div>
             <BookText className='text-primary' />
             <p className='absolute top-0 right-0 m-2 text-xs border border-gray-800  w-fit rounded-sm px-2 text-gray-400'>Continue learning</p>
