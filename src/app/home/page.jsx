@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, hoverSpring } from '../utils/animation';
 import { supabase } from '@/api/client';
 
-const Page = () => {
+const Home = () => {
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
   const [recomended, setRecomended] = useState([]);
@@ -78,4 +78,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default Home

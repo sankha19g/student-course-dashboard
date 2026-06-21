@@ -37,16 +37,16 @@ const Activitypage = () => {
             <div className="p-2  border rounded-xl m-2 border-slate-700 ">
                 <div className='grid lg:grid-cols-12 md:grid-cols-6 grid-cols-3  gap-2 w-max pb-4 justify-center items-center'>
                     {prevmonths.map((month, index) => (
-                        <div className='flex flex-col gap-2'>
-                            <div key={index} className="text-xs text-gray-400 text-center">{month}</div>
+                        <div key={index} className='flex flex-col gap-2'>
+                            <div className="text-xs text-gray-400 text-center">{month}</div>
                             <Filledboxesfunction />
                         </div>
                     ))}
 
 
                     {futuremonths.map((month, index) => (
-                        <div className='flex flex-col gap-2' >
-                            <div key={index} className="text-xs text-gray-400 text-center">{month}</div>
+                        <div key={index} className='flex flex-col gap-2' >
+                            <div className="text-xs text-gray-400 text-center">{month}</div>
                             <Unfilledboxesfunction />
                         </div>
                     ))}
